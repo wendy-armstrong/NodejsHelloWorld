@@ -39,7 +39,7 @@ pipeline {
  post {
     always {
       emailext(
-          to: "wendy.armstrong@avalara.com",
+          to: "wendyjeanarmstrong@gmail.com",
           subject: currentBuild.result,
           body: currentBuild.result
         )         

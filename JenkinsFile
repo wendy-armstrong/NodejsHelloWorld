@@ -24,7 +24,7 @@ pipeline {
 
     stage('Test output'){
       steps {
-        sh 'ls'
+        sh 'cat output.txt'
         sh "wc -l output.txt | awk '{print \$1}'" 
       }
     }    

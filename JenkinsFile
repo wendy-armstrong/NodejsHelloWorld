@@ -4,6 +4,7 @@ pipeline {
   tools {nodejs "nodejs"}
  
  stages {    
+
     stage('Cloning Git') {
       steps {
         git 'https://github.com/wendy-armstrong/NodejsHelloWorld'
@@ -32,12 +33,17 @@ pipeline {
             currentBuild.result = 'FAILURE'
           }
         }
-        emailext(
-          to: "wendy.armstrong@avalara.com",
-          subject: currentBuild.result,
-          body: currentBuild.result
-        )
       }
     }    
   }
+ post {
+    always {
+      emailext(
+          to: "wendy.armstrong@avalara.com",
+          subject: currentBuild.result,
+          body: currentBuild.result
+        )         
+   }
+ }
+
 }

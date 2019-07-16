@@ -32,6 +32,11 @@ pipeline {
             currentBuild.result = 'FAILURE'
           }
         }
+        emailext(
+          to:wendy.armstrong@avalara.com,
+          subject: currentBuild.result,
+          body: currentBuild.result
+        )
       }
     }    
   }

@@ -25,6 +25,7 @@ pipeline {
     stage('Test output'){
       steps {
         sh 'ls'
+        sh 'wc -1 output.txt'
       }
     }    
   }

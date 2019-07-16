@@ -10,7 +10,7 @@ pipeline {
       }
     }
 	
-	stage('Install dependencies') {
+	  stage('Install dependencies') {
       steps {
         sh 'npm install'
       }
@@ -18,8 +18,14 @@ pipeline {
      
     stage('Run Script') {
       steps {
-         sh 'node index.js'
+          sh 'node index.js'
       }
-    }      
-  }     
+    }  
+
+    stage('Test output'){
+      steps {
+        sh 'ls'
+      }
+    }    
+  }
 }

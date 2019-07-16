@@ -25,9 +25,12 @@ pipeline {
     stage('Test output'){
       steps {
         script {
-          def result = sh(script: "wc -l < output.txt", returnStdout: true )
-          //result = sh(script: "wc -l output.txt | awk '{print \$1}'", returnStdout: true )
-          println("line count = ${result}")
+          def lineCount = sh(script: "wc -l < output.txt", returnStdout: true )
+          println("line count = ${lineCount}")
+          if(lineCount > 1)
+          {
+            currentBuild.result = 'FAILURE'
+          }
         }
       }
     }    

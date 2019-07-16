@@ -24,10 +24,11 @@ pipeline {
 
     stage('Test output'){
       steps {
-        sh 'cat output.txt'
-        def result = sh(script: "wc -l < output.txt", returnStdout: true )
-        //result = sh(script: "wc -l output.txt | awk '{print \$1}'", returnStdout: true )
-        println("line count = ${result}")
+        script {
+          def result = sh(script: "wc -l < output.txt", returnStdout: true )
+          //result = sh(script: "wc -l output.txt | awk '{print \$1}'", returnStdout: true )
+          println("line count = ${result}")
+        }
       }
     }    
   }

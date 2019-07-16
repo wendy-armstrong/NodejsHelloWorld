@@ -33,7 +33,7 @@ pipeline {
           }
         }
         emailext(
-          to:wendy.armstrong@avalara.com,
+          to: "wendy.armstrong@avalara.com",
           subject: currentBuild.result,
           body: currentBuild.result
         )

@@ -25,9 +25,8 @@ pipeline {
     stage('Test output'){
       steps {
         sh 'cat output.txt'
-        sh """
-        wc -l output.txt | awk '{print $1}'
-        """ 
+        result = sh(script: "wc -l output.txt | awk '{print $1}" )
+        println("line count = ${result}")
       }
     }    
   }

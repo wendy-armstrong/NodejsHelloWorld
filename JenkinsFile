@@ -19,10 +19,10 @@ pipeline {
      
     stage('Run Script') {
       steps {
-          //sh 'node index.js'
-          sh('npm config set @avalara:registry https://packages.avalara.net/feeds/avalara-npm-default')
-          sh('npm install -g @avalara/mrs-vat-worflow-task-runner')
-          sh('node VwTaskRunner -t FindDuplicateVwEvents -e local')
+          sh 'node index.js'
+          //sh('npm config set @avalara:registry https://packages.avalara.net/feeds/avalara-npm-default')
+          //sh('npm install -g @avalara/mrs-vat-worflow-task-runner')
+          //sh('node VwTaskRunner -t FindDuplicateVwEvents -e local')
       }
     }  
 

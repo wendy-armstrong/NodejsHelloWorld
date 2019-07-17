@@ -39,10 +39,10 @@ pipeline {
       }
     }    
   }
- //post {
-   // always {
-     // emailext attachmentsPattern:'output.txt', to: "wendyjeanarmstrong@gmail.com", subject: currentBuild.result, body: currentBuild.result         
-   //}
- //}
+ post {
+    always {
+      emailext attachmentsPattern:'output.txt', to: "wendy.armstrong@avalara.com", subject: currentBuild.result, body: 'Jenkins taskrunner test - ignore'         
+   }
+ }
 
 }
